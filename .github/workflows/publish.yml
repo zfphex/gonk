@@ -14,8 +14,6 @@ jobs:
     strategy:
       matrix:
         include:
-        - target: x86_64-unknown-linux-gnu
-          os: ubuntu-latest
         - target: x86_64-pc-windows-msvc
           os: windows-latest
     runs-on: ${{matrix.os}}
@@ -31,18 +29,11 @@ jobs:
         toolchain: stable
         profile: minimal
         
-    - name: Install dependencies
-      shell: bash
-      run: |
-       if [[ "$RUNNER_OS" != "Windows" ]]; then
-          sudo apt install -y libasound2-dev libjack-jackd2-dev
-       fi
-
     - name: Build
       uses: actions-rs/cargo@v1
       with:
         command: build
-        args: --release --target=${{ matrix.target }}
+        args: --profile dist --features "simd" --target=${{ matrix.target }}
 
     - name: Build Archive
       shell: bash
@@ -57,21 +48,13 @@ jobs:
         dist=$src/dist
         name=$bin-$version-$target
         executable=target/$target/release/$bin
-        if [[ "$RUNNER_OS" == "Windows" ]]; then
-          executable=$executable.exe
-        fi
+        executable=$executable.exe
         mkdir $dist
         cp $executable $dist
         cd $dist
-        if [[ "$RUNNER_OS" == "Windows" ]]; then
-            archive=$dist/$name.zip
-            7z a $archive *
-            echo "::set-output name=archive::`pwd -W`/$name.zip"
-        else
-            archive=$dist/$name.tar.gz
-            tar czf $archive *
-            echo "::set-output name=archive::$archive"
-        fi
+        archive=$dist/$name.zip
+        7z a $archive *
+        echo "::set-output name=archive::`pwd -W`/$name.zip"
 
     - name: Publish Archive
       uses: softprops/action-gh-release@v1
