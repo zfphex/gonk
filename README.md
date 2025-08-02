@@ -1,9 +1,9 @@
-<h1 align="center" style="font-size: 55px">Gonk</h1>
+<h1 align="center" style="font-size: 55px">mu</h1>
 
 <h3 align="center">A terminal music player.</h3>
 
 <div align="center" style="display:inline">
-      <img src="https://raw.githubusercontent.com/zX3no/gonk/main/media/gonk.gif">
+      <img src="https://raw.githubusercontent.com/zfphex/mu/main/media/mu.webp">
 </div>
 
 ## ⚠️ Warning
@@ -20,10 +20,10 @@
 ## 📦 Installation
 > I recommend a font with ligatures for the best experience.
 
-Download the latest [release](https://github.com/zX3no/gonk/releases/latest) and add some music.
+Download the latest [release](https://github.com/zfphex/mu/releases/latest) and add some music.
 
 ```
-gonk add ~/Music
+mu add ~/Music
 ```
 
 ### Building from Source
@@ -31,10 +31,10 @@ gonk add ~/Music
 > Linux is currently unsupported.
 
 ```
-git clone https://github.com/zX3no/gonk
-cd gonk
-cargo install --path gonk
-gonk
+git clone https://github.com/zfphex/mu
+cd mu
+cargo install --path mu --profile dist --features "simd"
+mu
 ```
 
 ## ⌨️ Key Bindings
@@ -78,10 +78,10 @@ gonk
 
 ## ⚒️ Troubleshooting
 
-- Gonk doesn't start after an update.
+- mu doesn't start after an update.
 
-  Run `gonk reset` to reset your database.
-  If this doesn't work, you can reset the database by deleting `%appdata%/gonk/` or `~/gonk` on linux.
+  Run `mu reset` to reset your database.
+  If this doesn't work, you can reset the database by deleting `%appdata%/mu/`
 
 - If your music player has broken lines, increase your zoom level or font size.
 

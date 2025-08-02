@@ -1,6 +1,14 @@
 [workspace]
 resolver = "2"
-members = ["gonk", "gonk_core", "gonk_player"]
+members = ["mu", "mu_core", "mu_player"]
 
 [profile.release]
 debug = true
+
+[profile.dist]
+inherits = "release"  
+opt-level = "z"       
+lto = true            
+strip = true  
+panic = "abort"    
+codegen-units = 1  
