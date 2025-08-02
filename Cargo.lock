@@ -878,7 +878,7 @@ checksum = "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
 [[package]]
 name = "winter"
 version = "0.1.0"
-source = "git+https://github.com/zfphex/winter#9f7b9090f4e64cfd86ce1122f0db549bbeea3949"
+source = "git+https://github.com/zfphex/winter#168ec7717c40ad1e7c76477e66e3a36f279333f8"
 dependencies = [
  "bitflags 2.9.1",
  "unicode-width",
