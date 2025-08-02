@@ -3,7 +3,7 @@
 <h3 align="center">A terminal music player.</h3>
 
 <div align="center" style="display:inline">
-      <img src="https://raw.githubusercontent.com/zfphex/mu/main/media/mu.webp">
+      <img src="https://raw.githubusercontent.com/zfphex/mu/refs/heads/main/media/mu.webp">
 </div>
 
 ## ⚠️ Warning
