@@ -47,7 +47,7 @@ jobs:
         src=`pwd`
         dist=$src/dist
         name=$bin-$version-$target
-        executable=target/$target/release/$bin
+        executable=target/$target/dist/$bin
         executable=$executable.exe
         mkdir $dist
         cp $executable $dist
