@@ -1,7 +1,6 @@
 use browser::Browser;
 use mu_core::{vdb::*, *};
 use mu_player::*;
-use mini::defer_results;
 use playlist::{Mode as PlaylistMode, Playlist};
 use queue::Queue;
 use search::{Mode as SearchMode, Search};
@@ -101,7 +100,7 @@ fn path(mut path: String) -> Option<std::path::PathBuf> {
 }
 
 fn main() {
-    defer_results!();
+    mini::defer_results!();
     let mut persist = mu_core::settings::Settings::new().unwrap();
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut scan_timer = Instant::now();
@@ -140,9 +139,7 @@ fn main() {
                 return;
             }
             "b" | "buffer" | "--buffer" | "--b" => match args.get(1) {
-                Some(rb_size) => unsafe {
-                    mu_player::RB_SIZE = rb_size.parse::<usize>().unwrap()
-                },
+                Some(rb_size) => unsafe { mu_player::RB_SIZE = rb_size.parse::<usize>().unwrap() },
                 None => {
                     println!("Please enter a valid ring buffer size `buffer <size>`.");
                     return;

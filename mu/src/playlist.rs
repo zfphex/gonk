@@ -335,7 +335,7 @@ pub fn draw(
         if playlist.changed {
             playlist.changed = false;
             let target_playlist = playlist.lists.iter().find_map(|p| {
-                if p.name().to_ascii_lowercase() == playlist.search_query.to_ascii_lowercase() {
+                if p.name().eq_ignore_ascii_case(&playlist.search_query) {
                     Some(p.name())
                 } else {
                     None

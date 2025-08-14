@@ -93,7 +93,7 @@ pub fn read_metadata<P: AsRef<Path>>(path: P) -> Result<Song, Box<dyn Error>> {
         Err("File is not FLAC.")?;
     }
 
-    let mut song: Song = Song::default();
+    let mut song: Song = Song::new();
     song.path = path.as_ref().to_string_lossy().to_string();
 
     let mut flag = [0; 1];

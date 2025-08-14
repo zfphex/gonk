@@ -99,7 +99,7 @@ pub const UNKNOWN_ALBUM: &str = "Unknown Album";
 pub const UNKNOWN_ARTIST: &str = "Unknown Artist";
 
 impl Song {
-    pub fn default() -> Self {
+    pub fn new() -> Self {
         Self {
             title: UNKNOWN_TITLE.to_string(),
             album: UNKNOWN_ALBUM.to_string(),

@@ -61,15 +61,11 @@ impl<T> Index<T> {
         self.index = Some(down(self.data.len(), index, n));
     }
     pub fn selected(&self) -> Option<&T> {
-        let Some(index) = self.index else {
-            return None;
-        };
+        let index = self.index?;
         self.data.get(index)
     }
     pub fn selected_mut(&mut self) -> Option<&mut T> {
-        let Some(index) = self.index else {
-            return None;
-        };
+        let index = self.index?;
         self.data.get_mut(index)
     }
     pub fn index(&self) -> Option<usize> {
